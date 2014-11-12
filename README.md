@@ -2,7 +2,7 @@
 
 Prevents Safari from autofilling password fields you don't want autofilled. See http://stackoverflow.com/questions/22817801/how-to-disable-auto-fill-in-safari-7 for a good explanation of the bug.
 
-Tested on Rails 4 but probably works on older versions too.
+Tested on Rails 4. (Probably works on other versions too, if anyone is keen to test & update the gem's dependencies.)
 
 ### Installing
 
@@ -18,11 +18,13 @@ Or install it yourself as:
 
     $ gem install fake_password_field
 
+Available on RubyGems: https://rubygems.org/gems/fake_password_field
+
 ### Usage
 
 In your views, replace `password_field_tag` with `fake_password_field_tag`. Or if you're using a FormBuilder (`form_for(@object)...`), replace `f.password_field` with `f.fake_password_field`.
 
-Everything else should work the same - please file an issue if it's not working!
+All other parameters should be the same - you shouldn't need to change anything else in your view code. Please create an issue if that isn't the case.
 
 ### How it works
 
