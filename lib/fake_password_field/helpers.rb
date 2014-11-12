@@ -6,7 +6,7 @@ class FormBuilder
     javascript = <<-STR
 <script>
 // http://stackoverflow.com/q/22817801/641293
-var i = document.getElementByTagName('input'), e = i[i.length - 1]
+var i = document.getElementsByTagName('input'), e = i[i.length - 1]
 setTimeout(function() { e.type = 'password' }, 500)
 </script>
     STR
@@ -24,7 +24,7 @@ module FormTagHelper
     javascript = <<-STR
 <script>
 // http://stackoverflow.com/q/22817801/641293
-var i = document.getElementByTagName('input'), e = i[i.length - 1]
+var i = document.getElementsByTagName('input'), e = i[i.length - 1]
 setTimeout(function() { e.type = 'password' }, 500)
 </script>
     STR
