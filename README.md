@@ -22,24 +22,16 @@ Available on RubyGems: https://rubygems.org/gems/fake_password_field
 
 ### Usage
 
-In your views, replace `password_field_tag` with `fake_password_field_tag`. Or if you're using a FormBuilder (`form_for(@object)...`), replace `f.password_field` with `f.fake_password_field`.
-
-All other parameters should be the same - you shouldn't need to change anything else in your view code. Please create an issue if that isn't the case.
+Add a `fake_password_field_tag` to the top of your page. Or if you're using a FormBuilder (`form_for(@object)...`), add a `f.fake_password_field`.
 
 ### How it works
 
-The gem will render a text field (`<input type=text>`) with the same markup as your password field. Directly below, it inserts a snippet of Javascript that will convert this text field to a password field after the page has loaded and Safari's autofiller has finished running.
+This inserts a dummy HTML password element, which is hidden from view and will not be posted. But it will trick Safari into not autofilling your actual password field.
 
-The snippet looks like this:
+You should experiment with the best place in the form to add this element. Usually adding it to the top works well, but some form layouts work best if it's added to the bottom.
 
-````javascript
-<script>
-// http://stackoverflow.com/q/22817801/641293
-var i = document.getElementsByTagName('input'), e = i[i.length - 1]
-setTimeout(function() { e.type = 'password' }, 500)
-</script>
+The HTML looks like this:
+
+````html
+<div class="break_safari_autofill" style="left: -9999px; position: fixed; width: 1px;"><input type="password"></div> <!-- http://stackoverflow.com/a/24471266/641293 -->
 ````
-
-### Shortfalls
-
-If you have a default value in the password field, that value will flash briefly before being replaced by the password field dots. Generally it's not considered a good practice to include the user's password (or indeed, any password) in your HTML. But if you really need to, you should try one of the other workarounds suggested at http://stackoverflow.com/questions/22817801/how-to-disable-auto-fill-in-safari-7 or elsewhere, instead of this gem.
