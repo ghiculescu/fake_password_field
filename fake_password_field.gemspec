@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date        = '2014-11-12'
   s.platform    = Gem::Platform::RUBY
   s.summary     = "fake_password_field"
-  s.description = "Fix autofilling password fields in Safari. Replace password_field_tag with fake_password_field_tag, or f.password_field with f.fake_password_field."
+  s.description = "Fix autofilling password fields in Safari."
   s.authors     = ["Alex Ghiculescu"]
   s.email       = 'alexghiculescu@gmail.com'
   s.files        = Dir["{lib}/**/*.rb", "bin/*", "*.md"]
